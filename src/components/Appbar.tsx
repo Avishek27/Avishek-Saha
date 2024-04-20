@@ -22,7 +22,7 @@ export default function Appbar(){
             
             <h2 className = "font-dancing-script text-3xl p-3 mt-2 ml-7 ">Avishek Saha</h2>
          </div>
-         <div className="text-white p-3 flex justify-between font-montserrat font-bold text-lg mr-14">
+         <div className="text-white p-3 flex justify-between md:flex-row font-montserrat font-bold text-lg mr-14">
          <div className="p-3 hover:text-green-500">About</div>
             <div className="p-3 hover:text-green-500 cursor-pointer">Projects</div>
             <div className="p-3 hover:text-green-500 cursor-pointer">Skills</div>
