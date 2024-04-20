@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 export default function MotionDiv({
   children,
   delayOffset,
-  className,
 }: {
   children: ReactElement | string;
   delayOffset?: number;
