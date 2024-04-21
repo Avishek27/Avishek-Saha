@@ -1,33 +1,42 @@
+
 import Socials from './Socials';
-import { useState, useEffect } from "react";
+
 
 export default function Appbar(){
-   const [scrolling, setScrolling] = useState(false);
-   useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY > 0) {
-          setScrolling(true);
-        } else {
-          setScrolling(false);
-        }
-      };
-      window.addEventListener("scroll", handleScroll);
+  
+  const links = ["about", "projects", "skills", "contact"];
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-    return <div className= {`${scrolling ? ' backdrop-blur-lg bg-opacity-30' : 'bg-zinc-950'} flex justify-between  h-20 sticky top-0 `}>
-         <div className="text-white  ml-7">
+
+    return <>
+    <nav className="fixed z-50 border-b justify-center py-3 shadow-sm bg-background/60 backdrop-blur-md flex w-full select-none font-light md:px-28">
+      <div className="container flex flex-col items-center justify-between md:flex-row">
+        <div
+          className=
+            "text-5xl drop-shadow-2xl pt-1 hover:scale-105 transition-all font-dancing-script text-white">
             
-            <h2 className = "font-dancing-script text-3xl p-3 mt-2 ml-7 ">Avishek Saha</h2>
-         </div>
-         <div className="text-white p-3 flex justify-between font-montserrat font-bold text-lg mr-14">
-         <div className="p-3 hover:text-green-500">About</div>
-            <div className="p-3 hover:text-green-500 cursor-pointer">Projects</div>
-            <div className="p-3 hover:text-green-500 cursor-pointer">Skills</div>
-            <div className="p-3 hover:text-green-500 cursor-pointer">Contact</div>
-            <div className="p-3 hover:text-green-500"><Socials/></div>
-            </div>
-    </div>
+            Avishek Saha
+          </div>
+          <div className="nav-links flex gap-x-8 text-xs md:text-base">
+            {links.map((link) => (
+              <span
+                key={link}
+                className="cursor-pointer font-semibold font-montserrat hover:text-emerald-500 text-white"
+                onClick={() => {
+                  document
+                    .getElementById(link)
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                {link.charAt(0).toUpperCase() + link.slice(1)}
+              </span>
+            ))}
+
+            <span className='text-white'>
+              <Socials />
+            </span>
+          </div>
+        </div>
+      </nav>
+    </>
+
 }

@@ -13,7 +13,10 @@ function App() {
     <div>
       
       <Appbar />
+
+      <div className="pt-14 bg-zinc-900">
       <Preabout/>
+        </div>
       <About/>
       <Projects/>
       <Skills/>
